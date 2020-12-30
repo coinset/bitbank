@@ -16,12 +16,14 @@ type GetResponse = {
   success: number
 }
 
+const dataKeys = ['sell', 'buy', 'last', 'high', 'low', 'vol', 'timestamp']
+
 export const getTicker = async (pair: Pairs): Promise<GetResponse> => {
   const url = join(BASE_URL, pair, 'ticker')
   const response = await fetch(url)
 
   const json: GetResponse = JSON.parse(await response.text(), (key, value) => {
-    if (key === 'data' && typeof value === 'string') {
+    if (dataKeys.includes(key) && typeof value === 'string') {
       return Number(value)
     }
     return value
