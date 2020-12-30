@@ -19,7 +19,13 @@ type GetResponse = {
 export const getTicker = async (pair: Pairs): Promise<GetResponse> => {
   const url = join(BASE_URL, pair, 'ticker')
   const response = await fetch(url)
-  const json = (await response.json()) as GetResponse
+
+  const json: GetResponse = JSON.parse(await response.text(), (key, value) => {
+    if (key === 'data' && typeof value === 'string') {
+      return Number(value)
+    }
+    return value
+  })
 
   return json
 }
