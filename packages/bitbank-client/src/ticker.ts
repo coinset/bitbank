@@ -4,13 +4,16 @@ import fetch from 'node-fetch'
 import { Pairs } from './constants'
 
 type GetResponse = {
-  sell: number
-  buy: number
-  last: number
-  high: number
-  low: number
-  vol: number
-  timestamp: number
+  data: {
+    sell: number
+    buy: number
+    last: number
+    high: number
+    low: number
+    vol: number
+    timestamp: number
+  }
+  success: number
 }
 
 export const getTicker = async (pair: Pairs): Promise<GetResponse> => {
