@@ -1,7 +1,7 @@
 {
-  "name": "bitbank-client",
+  "name": "@coinset/bitbank",
   "description": "Bitbank API client for Node.js",
-  "version": "1.0.0-beta.1",
+  "version": "0.0.0",
   "main": "dist/index.cjs.js",
   "module": "dist/index.es.js",
   "types": "dist/index.d.ts",
@@ -10,6 +10,9 @@
       "require": "./dist/index.cjs.js",
       "import": "./dist/index.es.js"
     }
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "scripts": {
     "commit": "cz",
