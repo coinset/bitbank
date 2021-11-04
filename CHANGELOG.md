@@ -1,3 +1,9 @@
+# [v1.0.0-beta.2](https://github.com/TomokiMiyauci/bitbank-client/compare/v1.0.0-beta.1...v1.0.0-beta.2) (2021-11-04)
+
+## 🐛 Bug Fixes
+
+- [`535e9cb`](https://github.com/TomokiMiyauci/bitbank-client/commit/535e9cb) Rename package name
+
 # v1.0.0-beta.1 (2021-11-03)
 
 ## ✨ New Features
