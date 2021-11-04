@@ -75,13 +75,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/TomokiMiyauci/bitbank-client.git"
+    "url": "https://github.com/coinset/bitbank.git"
   },
   "files": [
     "dist"
   ],
-  "homepage": "https://github.com/TomokiMiyauci/bitbank-client#readme",
-  "bugs": "https://github.com/TomokiMiyauci/bitbank-client/issues",
+  "homepage": "https://github.com/coinset/bitbank#readme",
+  "bugs": "https://github.com/coinset/bitbank/issues",
   "funding": {
     "type": "patreon",
     "url": "https://www.patreon.com/tomoki_miyauci"
