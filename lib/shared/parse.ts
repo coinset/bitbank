@@ -1,4 +1,4 @@
-import { Reviver } from '@/shared/types'
+import { Reviver } from '@/shared/types/fetch'
 
 const defineReviver = (reviver?: Reviver) => (key: string, value: unknown) => {
   if (key === 'success' && typeof value === 'number') {

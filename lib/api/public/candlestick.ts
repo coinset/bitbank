@@ -2,10 +2,9 @@ import { BASE_URL, CANDLESTICK } from '@/constants/api'
 import { jsonFetch } from '@/shared/fetch'
 import { defineReviver } from '@/shared/parse'
 import type { BitbankPair } from '@/shared/types/currency'
+import type { Response, PublicAPI } from '@/shared/types/fetch'
 
 import { join } from 'path'
-
-import type { Response, PublicAPI } from '@/shared/types'
 
 type Min = 'min'
 type Hour = 'hour'
@@ -74,4 +73,4 @@ const fetchCandlestick: PublicAPI<CandlestickOptions, CandlestickResponse> = (
 }
 
 export { fetchCandlestick }
-export type { CandlestickOptions, CandlestickResponse }
+export type { CandlestickOptions, CandlestickResponse, CandleType }
