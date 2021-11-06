@@ -28,15 +28,33 @@ type CandlestickOptions = {
   YYYY: string
 }
 
+type Open = number
+type High = number
+type Low = number
+type Close = number
+type Volume = number
+type Ohlcv = [Open, High, Low, Close, Volume, Date]
+
 type CandlestickResponse = Response<{
-  candlestick: [
-    {
-      type: CandleType
-      ohlcv: [['string']]
-    }
-  ]
+  candlestick: {
+    type: CandleType
+    ohlcv: Ohlcv[]
+  }[]
   timestamp: number
 }>
+
+const reviver = defineReviver((key, value) => {
+  if (key === 'ohlcv' && Array.isArray(value)) {
+    return value.map(([open, high, low, close, volume, date]: Ohlcv) => {
+      const numbered = [open, high, low, close, volume].map((v) =>
+        typeof v === 'string' ? Number(v) : v
+      )
+      return [...numbered, typeof date === 'number' ? new Date(date) : date]
+    })
+  }
+
+  return value
+})
 
 /**
  * @throws `Error`
@@ -51,7 +69,7 @@ const fetchCandlestick: PublicAPI<CandlestickOptions, CandlestickResponse> = (
   const url = new URL(join(pair, CANDLESTICK, candleType, YYYY), BASE_URL)
 
   return jsonFetch(url, init, {
-    parseJson: defineReviver()
+    parseJson: reviver
   })
 }
 
