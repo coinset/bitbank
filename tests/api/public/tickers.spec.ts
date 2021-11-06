@@ -1,24 +1,20 @@
-import { fetchTickers } from '@/api/public/tickers'
+// eslint-disable-next-line import/no-unresolved
+import { expectTicker } from '@test/api/public/ticker.spec'
 
-describe('fetchCurrencyPairs', () => {
+import { fetchTickers } from '@/api/public/tickers'
+import { ALL_TICKER_PAIRS } from '@/constants/pair'
+
+describe('fetchTickers', () => {
   it('should return currency pairs info', async () => {
     const result = await fetchTickers()
 
-    expect(result.success).toEqual(expect.any(Boolean))
+    expect(result.success).toBeBoolean()
 
     if (!result.success) return
 
-    const { sell, buy, high, low, open, last, vol, timestamp, pair } =
-      result.data[0]
-
-    expect(sell).toEqual(expect.any(Number))
-    expect(buy).toEqual(expect.any(Number))
-    expect(high).toEqual(expect.any(Number))
-    expect(low).toEqual(expect.any(Number))
-    expect(open).toEqual(expect.any(Number))
-    expect(last).toEqual(expect.any(Number))
-    expect(vol).toEqual(expect.any(Number))
-    expect(timestamp).toEqual(expect.any(Number))
-    expect(pair).toEqual(expect.any(String))
+    result.data.forEach((ticker) => {
+      expectTicker(ticker)
+      expect(ALL_TICKER_PAIRS).toContain(ticker.pair)
+    })
   })
 })

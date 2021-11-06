@@ -14,8 +14,10 @@
     "outDir": "dist",
     "baseUrl": ".",
     "paths": {
-      "@/*": ["lib/*"]
+      "@/*": ["lib/*"],
+      "@test/*": ["tests/*"]
     }
   },
+  "files": ["node_modules/jest-extended/types/index.d.ts"],
   "include": ["lib/**/*.ts", "tests"]
 }

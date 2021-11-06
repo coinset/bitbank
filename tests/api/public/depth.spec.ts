@@ -1,25 +1,31 @@
 import { fetchDepth } from '@/api/public/depth'
 
-describe('fetchCurrencyPairs', () => {
+describe('fetchDepth', () => {
   it('should return currency pairs info', async () => {
     const result = await fetchDepth({
       pair: 'btc_jpy'
     })
 
-    expect(result.success).toEqual(expect.any(Boolean))
+    expect(result.success).toBeBoolean()
 
     if (!result.success) return
 
     const { asks, bids, timestamp, sequenceId } = result.data
 
-    expect(timestamp).toEqual(expect.any(Number))
-    expect(sequenceId).toEqual(expect.any(String))
-    expect(asks).toEqual(expect.any(Array))
-    expect(asks[0]).toEqual(expect.any(Array))
-    expect(asks[0]).toHaveLength(2)
-    expect(asks[0][0]).toEqual(expect.any(Number))
-    expect(asks[0][1]).toEqual(expect.any(Number))
+    expect(timestamp).toBeNumber()
+    expect(sequenceId).toBeString()
 
-    expect(bids).toEqual(expect.any(Array))
+    const forEachCase = (value: [number, number][]) => {
+      expect(value).toBeArray()
+      value.forEach((v) => {
+        expect(v).toHaveLength(2)
+        const [price, amount] = v
+        expect(price).toBeNumber()
+        expect(amount).toBeNumber()
+      })
+    }
+
+    forEachCase(asks)
+    forEachCase(bids)
   })
 })
