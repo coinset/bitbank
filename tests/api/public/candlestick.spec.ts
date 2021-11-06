@@ -1,6 +1,6 @@
 import { fetchCandlestick } from '@/api/public/candlestick'
 
-describe('fetchTransitions', () => {
+describe('fetchCandlestick', () => {
   it('should return currency pairs info', async () => {
     const result = await fetchCandlestick({
       pair: 'btc_jpy',
