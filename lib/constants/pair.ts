@@ -1,27 +1,31 @@
-import type { BitbankPair } from '@/shared/types/currency'
+import type { BitbankPair, BitBankJPYPair } from '@/shared/types/currency'
 
-const ALL_TICKER_PAIRS: BitbankPair[] = [
-  'btc_jpy',
-  'xrp_jpy',
-  'xrp_btc',
-  'ltc_jpy',
-  'ltc_btc',
-  'eth_jpy',
-  'eth_btc',
-  'mona_jpy',
-  'mona_btc',
-  'bcc_jpy',
-  'bcc_btc',
-  'xlm_jpy',
-  'xlm_btc',
-  'qtum_jpy',
-  'qtum_btc',
+const JPY_BITBANK_PAIRS: BitBankJPYPair[] = [
   'bat_jpy',
-  'bat_btc',
+  'bcc_jpy',
+  'btc_jpy',
+  'eth_jpy',
+  'ltc_jpy',
+  'mona_jpy',
   'omg_jpy',
-  'omg_btc',
-  'xym_jpy',
-  'xym_btc'
+  'qtum_jpy',
+  'xlm_jpy',
+  'xrp_jpy',
+  'xym_jpy'
 ]
 
-export { ALL_TICKER_PAIRS }
+const ALL_BITBANK_PAIRS: BitbankPair[] = [
+  'xrp_btc',
+  'ltc_btc',
+  'eth_btc',
+  'mona_btc',
+  'bcc_btc',
+  'xlm_btc',
+  'qtum_btc',
+  'bat_btc',
+  'omg_btc',
+  'xym_btc',
+  ...JPY_BITBANK_PAIRS
+]
+
+export { ALL_BITBANK_PAIRS, JPY_BITBANK_PAIRS }

@@ -2,10 +2,9 @@ import { BASE_URL, DEPTH } from '@/constants/api'
 import { jsonFetch } from '@/shared/fetch'
 import { defineReviver } from '@/shared/parse'
 import type { BitbankPair } from '@/shared/types/currency'
+import type { PublicAPI, Response } from '@/shared/types/fetch'
 
 import { join } from 'path'
-
-import type { PublicAPI, Response } from '@/shared/types'
 
 const reviver = defineReviver((key, value) => {
   if (['asks', 'bids'].includes(key) && Array.isArray(value)) {
@@ -25,16 +24,12 @@ type DepthOptions = {
   pair: BitbankPair
 }
 
-/**
- * Set of price and amount
- *
- * @remarks First is price, second is amount
- */
-type PriceAmountSet = [number, number]
+type Price = number
+type Amount = number
 
 type DepthResponse = Response<{
-  asks: PriceAmountSet[]
-  bids: PriceAmountSet[]
+  asks: [Price, Amount][]
+  bids: [Price, Amount][]
   timestamp: number
   sequenceId: string
 }>
@@ -53,4 +48,4 @@ const fetchDepth: PublicAPI<DepthOptions, DepthResponse> = ({ pair }, init) => {
 }
 
 export { fetchDepth }
-export type { DepthResponse }
+export type { DepthOptions, DepthResponse }

@@ -2,10 +2,9 @@ import { BASE_URL, TRANSITIONS } from '@/constants/api'
 import { jsonFetch } from '@/shared/fetch'
 import { defineReviver } from '@/shared/parse'
 import type { BitbankPair } from '@/shared/types/currency'
+import type { Response, PublicAPI } from '@/shared/types/fetch'
 
 import { join } from 'path'
-
-import type { Response, PublicAPI } from '@/shared/types'
 
 type TransitionsOptions = {
   pair: BitbankPair
@@ -50,4 +49,4 @@ const fetchTransitions: PublicAPI<TransitionsOptions, TransitionsResponse> = (
 }
 
 export { fetchTransitions }
-export type { TransitionsOptions, TransitionsResponse }
+export type { TransitionsOptions, Transaction, TransitionsResponse }

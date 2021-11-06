@@ -1,6 +1,7 @@
 import fetch from 'node-fetch'
 
-import type { Reviver } from '@/shared/types'
+import type { Reviver } from '@/shared/types/fetch'
+
 import type { RequestInfo, RequestInit } from 'node-fetch'
 
 const jsonFetch = async <T>(

@@ -1,12 +1,12 @@
 // eslint-disable-next-line import/no-unresolved
 import { expectTicker } from '@test/api/public/ticker.spec'
 
-import { fetchTickers } from '@/api/public/tickers'
-import { ALL_BITBANK_PAIRS } from '@/constants/pair'
+import { fetchTickersJPY } from '@/api/public/tickers_jpy'
+import { JPY_BITBANK_PAIRS } from '@/constants/pair'
 
-describe('fetchTickers', () => {
+describe('fetchTickersJPY', () => {
   it('should return currency pairs info', async () => {
-    const result = await fetchTickers()
+    const result = await fetchTickersJPY()
 
     expect(result.success).toBeBoolean()
 
@@ -14,7 +14,9 @@ describe('fetchTickers', () => {
 
     result.data.forEach((ticker) => {
       expectTicker(ticker)
-      expect(ALL_BITBANK_PAIRS).toContain(ticker.pair)
+      expect(JPY_BITBANK_PAIRS).toContain(ticker.pair)
     })
   })
 })
+
+export { expectTicker }
