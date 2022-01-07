@@ -1,4 +1,4 @@
-import { reviver, type TickerData } from "./ticker.ts";
+import { reviver, TickerData } from "./ticker.ts";
 import { BASE_URL } from "./constants.ts";
 import { jsonFetch } from "./fetch.ts";
 import type { BitBankJPYPair, SuccessResponse } from "./types.ts";
