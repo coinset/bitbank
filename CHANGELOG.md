@@ -1,3 +1,10 @@
+# [1.0.0-beta.3](https://github.com/coinset/bitbank/compare/v1.0.0-beta.2...v1.0.0-beta.3) (2022-01-07)
+
+
+### Features
+
+* switch code base to deno ([84697a8](https://github.com/coinset/bitbank/commit/84697a8134f6e8b8810448cdc9a20dcd2a6ed89f))
+
 # [v1.0.0-beta.2](https://github.com/TomokiMiyauci/bitbank-client/compare/v1.0.0-beta.1...v1.0.0-beta.2) (2021-11-04)
 
 ## 🐛 Bug Fixes
